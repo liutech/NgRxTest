@@ -1,26 +1,22 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
+import {StoreModule} from '@ngrx/store';
 
 import {AppComponent} from './app.component';
-import {StoreModule} from '@ngrx/store';
-import {reducers, metaReducers} from './store/reducers';
+import {testReducer} from './store/reducers/test.reducers';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    StoreModule.forRoot(reducers, {
-      metaReducers,
-      runtimeChecks: {
-        strictStateImmutability: true,
-        strictActionImmutability: true
-      }
-    })
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent
+    ],
+    imports: [
+        BrowserModule,
+        StoreModule.forRoot({test: testReducer})
+    ],
+    providers: [],
+    bootstrap: [
+        AppComponent
+    ]
 })
 export class AppModule {
 }
