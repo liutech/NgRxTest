@@ -1,3 +1,7 @@
+export interface IAppState {
+    crossCounters: ICrossCountersState;
+}
+
 export interface ICrossCountersState {
     foo: number;
     bar: number;
