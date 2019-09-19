@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 import {StoreModule} from '@ngrx/store';
 
 import {AppComponent} from './app.component';
-import {testReducer} from './store/reducers/test.reducers';
+import {CrossCountersModule} from './cross-counters/cross-counters.module';
 
 @NgModule({
     declarations: [
@@ -11,7 +11,8 @@ import {testReducer} from './store/reducers/test.reducers';
     ],
     imports: [
         BrowserModule,
-        StoreModule.forRoot({test: testReducer})
+        StoreModule.forRoot({}),
+        CrossCountersModule
     ],
     providers: [],
     bootstrap: [
