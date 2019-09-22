@@ -8,6 +8,6 @@ export interface ICrossCountersState {
 }
 
 export const initialState: ICrossCountersState = {
-    foo: -5,
-    bar: 10
+    foo : -5,
+    bar : 10
 };
