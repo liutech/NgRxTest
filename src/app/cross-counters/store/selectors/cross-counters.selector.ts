@@ -1,21 +1,11 @@
 import { createSelector, createFeatureSelector } from '@ngrx/store';
 
-import { IAppState, ICrossCountersState } from '../state/cross-counters.state';
-import { crossCountersFeatureKey } from '../reducers/cross-counters.reducers';
+import { IAppState, crossCountersFeatureKey } from '../state/app.state';
+import { ICrossCountersState } from '../state/cross-counters.state';
 
-export const selectCrossCounters = createFeatureSelector<IAppState, ICrossCountersState>(crossCountersFeatureKey);
+export const selectCrossCountersFeature = createFeatureSelector<IAppState, ICrossCountersState>(crossCountersFeatureKey);
 
-export const selectCrossCountersFoo = createSelector(
-    selectCrossCounters,
-    (state: ICrossCountersState) => state.foo
-);
-
-export const selectCrossCountersBar = createSelector(
-    selectCrossCounters,
-    (state: ICrossCountersState) => state.bar
-);
-
-export const selectCrossCountersFooBar = createSelector(
-    selectCrossCounters,
+export const selectCrossCountersState = createSelector(
+    selectCrossCountersFeature,
     (state: ICrossCountersState) => state
 );

@@ -1,16 +1,16 @@
 import { createReducer, on, Action } from '@ngrx/store';
 
-import { ICrossCountersState, initialState } from '../state/cross-counters.state';
+import { ICrossCountersState, initialCrossCountersState } from '../state/cross-counters.state';
 import { decrease, increase, reset } from '../actions/cross-counters.actions';
 
-export const crossCountersFeatureKey = 'crossCounters';
 
-const crossCounterReducer = createReducer(initialState,
+
+const CrossCountersReducer = createReducer(initialCrossCountersState,
     on(increase, state => ({ ...state, foo : state.foo + 1 })),
     on(decrease, state => ({ ...state, bar : state.bar - 1 })),
-    on(reset, () => (initialState)),
+    on(reset, () => (initialCrossCountersState))
 );
 
-export function reducer(state: ICrossCountersState | undefined, action: Action) {
-    return crossCounterReducer(state, action);
+export function crossCountersReducer(state: ICrossCountersState | undefined, action: Action) {
+    return CrossCountersReducer(state, action);
 }
